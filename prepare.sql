@@ -90,7 +90,7 @@ create table exchangesTMP (exchangeId integer, exchangeType varchar(64));
 
 insert into exchangesTMP values
   (0, 'bitstamp') ,
-  (1, 'bitfinex' ); 
+  (1, 'bitfinex' ),
   (2, 'kraken' ); 
   
   insert into exchanges (exchangeId, exchangeType)
