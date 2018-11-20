@@ -18,7 +18,7 @@ create table orderNotifications (requestId 					varChar(64),
 								 notificationTypeId			integer, 
 								 size 				    	float,
 								 price	   					float,
-								 exchangeId      			integer,
+								 exchangeId      			varChar(128),
                                  ask						float,
                                  bid						float,
                                  currencyFrom				float,
@@ -91,6 +91,7 @@ create table exchangesTMP (exchangeId integer, exchangeType varchar(64));
 insert into exchangesTMP values
   (0, 'bitstamp') ,
   (1, 'bitfinex' ); 
+  (2, 'kraken' ); 
   
   insert into exchanges (exchangeId, exchangeType)
 	select * from exchangesTMP
