@@ -7,7 +7,7 @@ create table userOrders (userId 					varChar(128),
 						 size 						float,
                          price	   					float,
                          currencyPair 				varchar (16), 
-                         exchangeIds				varChar(128), -- list of exchange id's seperated by ',' 
+                         exchangeIds				varChar(32), -- list of exchange id's seperated by ',' 
 						 periodMinutes				integer,
 						 maxSizePerTransaction		float,
 						 eventTimeStamp				timestamp);
@@ -18,7 +18,7 @@ create table orderNotifications (requestId 					varChar(64),
 								 notificationTypeId			integer, 
 								 size 				    	float,
 								 price	   					float,
-								 exchangeId      			varChar(128),
+								 exchangeIds      			varChar(32),
                                  ask						float,
                                  bid						float,
                                  currencyFrom				float,
