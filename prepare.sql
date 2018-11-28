@@ -8,8 +8,8 @@ create table userOrders (userId 					varChar(128),
                          price	   					float,
                          currencyPair 				varchar (16), 
                          exchangeIds				varChar(32), -- list of exchange id's seperated by ',' 
-						 periodMinutes				integer,
-						 maxSizePerTransaction		float,
+						 durationMinutes			integer,
+						 maxOrderSize				float,
 						 eventTimeStamp				timestamp);
 
 
@@ -26,7 +26,8 @@ create table orderNotifications (requestId 					varChar(64),
 								 errorCode					integer	,
 								 errorMessage				varchar(512),
 								 eventTimeStamp			    timestamp,
-								 sendingModule				varchar(32));
+								 sendingModule				varchar(32),
+								 actionType					varchar(16));
 
 
 -- indexed tables here to save space 
