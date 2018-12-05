@@ -1,7 +1,8 @@
 create schema smartTrader ;
 use smartTrader;
 
-create table userOrders (userId 					varChar(128),
+create table userOrders (userId						varChar(128),
+						 accountName				varChar(128),
 						 requestId 					varchar(64),
 						 orderTypeId 				integer,
 						 size 						float,
@@ -10,7 +11,8 @@ create table userOrders (userId 					varChar(128),
                          exchangeIds				varChar(32), -- list of exchange id's seperated by ',' 
 						 durationMinutes			integer,
 						 maxOrderSize				float,
-						 eventTimeStamp				timestamp);
+						 eventTimeStamp				timestamp,
+						 actionType                 integer);
 
 
 create table orderNotifications (requestId 					varChar(64),
@@ -99,3 +101,17 @@ insert into exchangesTMP values
 where (select count(*) from  exchanges ) = 0; 
 
 drop table exchangesTMP;
+
+create table actionTypes (actionId integer, actionType varchar(12));
+create table actionTypesTMP (actionId integer, actionType varchar(12));
+insert into actionTypesTMP values
+  (0, 'buy') ,
+  (1, 'sell' ),
+  
+  
+insert into actionTypes (actionId, actionType)
+	select * from actionTypesTMP
+where (select count(*) from  actionTypes ) = 0;  
+
+drop table actionTypesTMP;
+ 
