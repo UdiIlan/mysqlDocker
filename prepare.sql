@@ -102,11 +102,14 @@ where (select count(*) from  exchanges ) = 0;
 
 drop table exchangesTMP;
 
-create table actionTypes (actionId integer, actionType varchar(12));
-create table actionTypesTMP (actionId integer, actionType varchar(12));
+
+-- ************************** actionTypes population ************************
+
+create table actionTypes (actionId integer, actionType varchar(64));
+create table actionTypesTMP (actionId integer, actionType varchar(64));
 insert into actionTypesTMP values
-  (0, 'buy') ,
-  (1, 'sell' ),
+  (0, 'sell') ,
+  (1, 'buy' );
   
   
 insert into actionTypes (actionId, actionType)
